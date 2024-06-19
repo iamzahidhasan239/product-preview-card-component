@@ -1,0 +1,123 @@
+*, *::after, *::before{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+a, a:hover{
+    text-decoration: none;
+}
+:root{
+    --darkCyan: hsl(158, 36%, 37%);
+    --cream: hsl(30, 38%, 92%);
+    --veryDarkBlue: hsl(212, 21%, 14%);
+    --darkGrayishBlue: hsl(228, 12%, 48%);
+    --whiteColor: hsl(0, 0%, 100%);
+    --hoverColor: hsl(158, 36%, 20%);
+}
+html, body{
+    height: 100%;
+}
+body{
+    font-size: 14px;
+    font-family: "Montserrat", sans-serif;
+    background-color: var(--cream);
+    display: grid;
+    place-content: center;
+    margin: 1rem;
+    height: 100vh;
+}
+h1, h2, h3, h4, h5, h6{
+    font-family: "Fraunces", serif;
+    overflow-wrap: break-word;
+}
+.product{
+    max-width: 600px;
+    background-color: var(--whiteColor);
+    border-radius: 0.5rem;
+    display: grid;
+    overflow: hidden;
+    grid-template-columns: repeat(2, 1fr);
+}
+.product_info{
+    padding: 1.5rem;
+    display: grid;
+    gap: 1rem;
+}
+.product_info h3{
+    color: var(--darkGrayishBlue);
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}
+.product_info h2{
+    color: var(--veryDarkBlue);
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: capitalize;
+}
+.product_info p{
+    color: var(--darkGrayishBlue);
+    font-size: 14px;
+    font-weight: 500;
+}
+.product_price{
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    align-items: center;
+}
+.product_price p{
+    font-size: 42px;
+    font-family: "Fraunces", serif;
+    font-weight: 700;
+    color: var(--darkCyan);
+}
+.product_price del{
+    color: var(--veryDarkBlue);
+}
+.product .btn{
+    color: var(--whiteColor);
+    background-color: var(--darkCyan);
+    padding: 15px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid var(--darkCyan);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: 1s;
+    position: relative;
+}
+.btn::after{
+    content: "";
+    width: 15px;
+    height: 16px;
+    background: url("../images/icon-cart.svg");
+    position: absolute;
+    left: 49px;
+}
+.product .btn:is(:hover, :focus){
+    background-color: var(--hoverColor);
+    border: 1px solid var(--hoverColor);
+}
+/* responsive design start here */
+@media all and (max-width: 600px){
+    .product{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .btn::after{
+        left: 70px;
+    }
+}
